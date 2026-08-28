@@ -25,6 +25,8 @@ citizenapp/
 │   ├── components/       # Composants réutilisables
 │   ├── models/           # Modèles de données
 │   ├── bloc/             # Gestion des états
+│   │   │── Languagebloc            # Gestion de l'état de langue
+│   │   └── onboardingstagingbloc   # Gestion des états de l'onboarding
 │   └── utils/theme.dart  # Charte graphique
 ├── assets/               # Fichiers statiques
 ├── pubspec.yaml
