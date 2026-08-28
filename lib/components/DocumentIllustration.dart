@@ -4,7 +4,7 @@ import 'package:shadcn_ui/shadcn_ui.dart';
 class DocumentIllustration extends StatelessWidget {
   final ShadColorScheme colors;
 
-  const DocumentIllustration({required this.colors});
+  const DocumentIllustration({super.key, required this.colors});
 
   @override
   Widget build(BuildContext context) {

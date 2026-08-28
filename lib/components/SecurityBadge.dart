@@ -4,7 +4,7 @@ import 'package:shadcn_ui/shadcn_ui.dart';
 class SecurityBadge extends StatelessWidget {
   final ShadColorScheme colors;
 
-  const SecurityBadge({required this.colors});
+  const SecurityBadge({super.key, required this.colors});
 
   @override
   Widget build(BuildContext context) {

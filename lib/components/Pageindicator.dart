@@ -6,7 +6,7 @@ import 'package:shadcn_ui/shadcn_ui.dart';
 class PageIndicator extends StatelessWidget {
   final ShadColorScheme colors;
 
-  const PageIndicator({required this.colors});
+  const PageIndicator({super.key, required this.colors});
 
   @override
   Widget build(BuildContext context) {

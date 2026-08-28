@@ -4,7 +4,7 @@ import 'package:shadcn_ui/shadcn_ui.dart';
 class CitizenLogo extends StatelessWidget {
   final ShadColorScheme colors;
 
-  const CitizenLogo({required this.colors});
+  const CitizenLogo({super.key, required this.colors});
 
   @override
   Widget build(BuildContext context) {
