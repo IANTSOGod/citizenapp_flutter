@@ -29,16 +29,19 @@ class Onboarding extends StatelessWidget {
                       >(
                         builder: (context, state) {
                           if (state is Stage) {
-                            if (state.stage == 1) {
-                              return Stage1();
-                            } else if (state.stage == 2) {
-                              return Stage2();
-                            } else {
-                              return Text("Not implemented stage");
+                            switch (state.stage) {
+                              case 1:
+                                return const Stage1();
+
+                              case 2:
+                                return const Stage2();
+
+                              default:
+                                return const Text('Not implemented stage');
                             }
-                          } else {
-                            return Text("Bloc error");
                           }
+
+                          return const Text('Bloc error');
                         },
                       ),
                 ),

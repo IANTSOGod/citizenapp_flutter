@@ -1,12 +1,14 @@
 part of 'onboardingstaging_bloc.dart';
 
 @immutable
-sealed class OnboardingstagingState {}
+sealed class OnboardingstagingState extends Equatable {}
 
 final class Stage extends OnboardingstagingState {
   final int stage;
 
   Stage(this.stage);
 
-  List<int> get props => [stage];
+  @override
+  // TODO: implement props
+  List<Object?> get props => [stage];
 }
