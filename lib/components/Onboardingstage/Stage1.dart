@@ -1,4 +1,4 @@
-import 'package:citizenapp/bloc/Stagingblocs/onboardingstaging_bloc.dart';
+import 'package:citizenapp/bloc/onboardingstagingbloc/onboardingstaging_bloc.dart';
 import 'package:citizenapp/components/CitizenLogo.dart';
 import 'package:citizenapp/components/DocumentIllustration.dart';
 import 'package:citizenapp/components/LanguageSelector.dart';

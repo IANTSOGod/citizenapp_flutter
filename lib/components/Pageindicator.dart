@@ -1,4 +1,4 @@
-import 'package:citizenapp/bloc/Stagingblocs/onboardingstaging_bloc.dart';
+import 'package:citizenapp/bloc/onboardingstagingbloc/onboardingstaging_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';

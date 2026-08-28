@@ -1,5 +1,5 @@
-import 'package:citizenapp/bloc/Stagingblocs/onboardingstaging_bloc.dart';
-import 'package:citizenapp/bloc/language_bloc.dart';
+import 'package:citizenapp/bloc/onboardingstagingbloc/onboardingstaging_bloc.dart';
+import 'package:citizenapp/bloc/Languagebloc/language_bloc.dart';
 import 'package:citizenapp/pages/onboarding.dart';
 import 'package:citizenapp/utils/theme.dart';
 import 'package:flutter/material.dart';

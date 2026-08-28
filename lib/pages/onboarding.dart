@@ -1,4 +1,4 @@
-import 'package:citizenapp/bloc/Stagingblocs/onboardingstaging_bloc.dart';
+import 'package:citizenapp/bloc/onboardingstagingbloc/onboardingstaging_bloc.dart';
 import 'package:citizenapp/components/Onboardingstage/Stage1.dart';
 import 'package:citizenapp/components/Onboardingstage/Stage2.dart';
 import 'package:flutter/material.dart';
