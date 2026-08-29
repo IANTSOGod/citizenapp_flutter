@@ -1,4 +1,4 @@
-import 'package:citizenapp/components/CornerFramePainter.dart';
+import 'package:citizenapp/components/Imagecapture.dart';
 import 'package:citizenapp/components/Ocrcontrols.dart';
 import 'package:citizenapp/components/TipCard.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +19,7 @@ class Ocrcapturehome extends StatelessWidget {
           const SizedBox(height: 24),
           _buildHeader(colors),
           const SizedBox(height: 32),
-          _buildFrame(colors),
+          Imagecapture(colors: colors),
           const SizedBox(height: 24),
           Ocrcontrols(colors: colors),
           const SizedBox(height: 20),
@@ -56,37 +56,6 @@ class Ocrcapturehome extends StatelessWidget {
             style: TextStyle(color: colors.mutedForeground, fontSize: 14),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildFrame(ShadColorScheme colors) {
-    return Center(
-      child: AspectRatio(
-        aspectRatio: 1.58, // ratio approximatif d'une carte d'identité
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 32),
-          child: Stack(
-            children: [
-              // Zone de la carte (placeholder, remplaçable par une preview caméra)
-              Positioned.fill(
-                child: Container(
-                  margin: const EdgeInsets.all(14),
-                  decoration: BoxDecoration(
-                    color: colors.muted,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-              ),
-              // Coins du cadre
-              Positioned.fill(
-                child: CustomPaint(
-                  painter: CornerFramePainter(color: colors.primary),
-                ),
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }
