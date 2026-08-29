@@ -3,6 +3,7 @@ import 'package:citizenapp/components/CitizenLogo.dart';
 import 'package:citizenapp/components/LanguageSelector.dart';
 import 'package:citizenapp/components/Onboardingstage/Stage1.dart';
 import 'package:citizenapp/components/Onboardingstage/Stage2.dart';
+import 'package:citizenapp/components/Onboardingstage/Stage3.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
@@ -47,10 +48,10 @@ class Onboarding extends StatelessWidget {
                             switch (state.stage) {
                               case 1:
                                 return const Stage1();
-
                               case 2:
                                 return const Stage2();
-
+                              case 3:
+                                return const Stage3();
                               default:
                                 return const Text('Not implemented stage');
                             }

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-class Stage2 extends StatelessWidget {
-  const Stage2({super.key});
+class Stage3 extends StatelessWidget {
+  const Stage3({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,19 +15,19 @@ class Stage2 extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         PageIndicator(colors: colors),
-        SizedBox(height: 52,),
+        SizedBox(height: 52),
         SizedBox(
           width: double.infinity,
           height: 46,
           child: ShadButton(
             onPressed: () {
-              context.read<OnboardingstagingBloc>().add(ChangeStage(3));
+              print("final");
             },
             backgroundColor: colors.primary,
             foregroundColor: colors.primaryForeground,
 
             child: const Text(
-              'Suivant',
+              "S'authentifier",
               style: TextStyle(fontSize: 11, fontWeight: FontWeight.w500),
             ),
           ),
@@ -40,7 +40,7 @@ class Stage2 extends StatelessWidget {
           height: 46,
           child: ShadButton.outline(
             onPressed: () {
-              context.read<OnboardingstagingBloc>().add(ChangeStage(1));
+              context.read<OnboardingstagingBloc>().add(ChangeStage(2));
             },
             foregroundColor: colors.primary,
             decoration: ShadDecoration(

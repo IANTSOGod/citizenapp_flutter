@@ -34,7 +34,7 @@ class LanguageSelector extends StatelessWidget {
                       context.read<LanguageBloc>().add(ChangeLanguage("ENG"));
                     },
                     child: AnimatedContainer(
-                      duration: const Duration(milliseconds: 150),
+                      duration: const Duration(milliseconds: 200),
                       height: 18,
                       padding: const EdgeInsets.symmetric(horizontal: 8),
                       decoration: BoxDecoration(
