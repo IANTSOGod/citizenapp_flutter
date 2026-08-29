@@ -10,6 +10,7 @@ class CitizenLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Container(
           width: 22,
@@ -22,18 +23,6 @@ class CitizenLogo extends StatelessWidget {
             Icons.verified_user_rounded,
             color: Colors.white,
             size: 13,
-          ),
-        ),
-
-        const SizedBox(width: 4),
-
-        Text(
-          'Citizen App',
-          style: TextStyle(
-            color: colors.primary,
-            fontSize: 13,
-            fontWeight: FontWeight.w700,
-            letterSpacing: -0.2,
           ),
         ),
       ],

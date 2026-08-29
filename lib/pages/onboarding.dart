@@ -1,4 +1,6 @@
 import 'package:citizenapp/bloc/onboardingstagingbloc/onboardingstaging_bloc.dart';
+import 'package:citizenapp/components/CitizenLogo.dart';
+import 'package:citizenapp/components/LanguageSelector.dart';
 import 'package:citizenapp/components/Onboardingstage/Stage1.dart';
 import 'package:citizenapp/components/Onboardingstage/Stage2.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +15,19 @@ class Onboarding extends StatelessWidget {
     final colors = ShadTheme.of(context).colorScheme;
 
     return Scaffold(
+      appBar: AppBar(
+        leading: CitizenLogo(colors: colors),
+        title: Text(
+          'Citizen App',
+          style: TextStyle(
+            color: colors.primary,
+            fontSize: 13,
+            fontWeight: FontWeight.w700,
+            letterSpacing: -0.2,
+          ),
+        ),
+        actions: [LanguageSelector(colors: colors)],
+      ),
       backgroundColor: colors.background,
       body: SafeArea(
         child: LayoutBuilder(

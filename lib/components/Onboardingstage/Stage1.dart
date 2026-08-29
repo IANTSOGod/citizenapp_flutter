@@ -1,7 +1,5 @@
 import 'package:citizenapp/bloc/onboardingstagingbloc/onboardingstaging_bloc.dart';
-import 'package:citizenapp/components/CitizenLogo.dart';
 import 'package:citizenapp/components/DocumentIllustration.dart';
-import 'package:citizenapp/components/LanguageSelector.dart';
 import 'package:citizenapp/components/Pageindicator.dart';
 import 'package:citizenapp/components/SecurityBadge.dart';
 import 'package:flutter/material.dart';
@@ -17,13 +15,6 @@ class Stage1 extends StatelessWidget {
 
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            CitizenLogo(colors: colors),
-            LanguageSelector(colors: colors),
-          ],
-        ),
         Expanded(
           child: Column(
             children: [
