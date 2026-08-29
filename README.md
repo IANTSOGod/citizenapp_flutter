@@ -10,10 +10,8 @@ Le projet utilise **Flutter** comme framework principal, pour sa stabilité, ses
 
 ## Processus métiers (inchangés)
 
-- Inscription citoyenne (saisie des informations personnelles)
-- Vérification / validation des données saisies
-- Gestion du profil citoyen
-- (Ajouter ici les étapes spécifiques déjà définies dans les specs du projet)
+- Activation du compte citoyen
+- Accès au données citoyens
 
 ## Structure du projet
 
@@ -26,7 +24,8 @@ citizenapp/
 │   ├── models/           # Modèles de données
 │   ├── bloc/             # Gestion des états
 │   │   │── Languagebloc            # Gestion de l'état de langue
-│   │   └── onboardingstagingbloc   # Gestion des états de l'onboarding
+│   │   ├── onboardingstagingbloc   # Gestion des états de l'onboarding
+│   │   └── Activationstepbloc      # Gestion des états d'activation de compte
 │   └── utils/theme.dart  # Charte graphique
 ├── assets/               # Fichiers statiques
 ├── pubspec.yaml
@@ -55,3 +54,5 @@ flutter build ios        # iOS
 ## Contribution
 
 Merci de respecter la structure existante et de documenter toute nouvelle étape du processus métier ajoutée au flux d'inscription.
+
+Par @IANTSOGod
