@@ -1,5 +1,6 @@
 import 'package:citizenapp/bloc/Activateocrcapturebloc/activateocrcapture_bloc.dart';
 import 'package:citizenapp/components/Contentcininput.dart';
+import 'package:citizenapp/components/Ocrcapturestage/OcrImagePicker.dart';
 import 'package:citizenapp/components/Ocrcapturestage/OcrScanGuide.dart';
 import 'package:citizenapp/components/Ocrcapturestage/OcrcaptureHome.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class Activationstep1 extends StatelessWidget {
           } else if (state is ActivateocrcaptureOn) {
             return Ocrcapturehome();
           } else if (state is Activateocrbyfile) {
-            return Text("Integrating ocr by file");
+            return OcrImagePickerCard();
           } else if (state is Viewtipsstate) {
             return OcrScanGuide();
           } else {

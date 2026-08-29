@@ -1,5 +1,6 @@
 import 'package:citizenapp/components/CornerFramePainter.dart';
 import 'package:citizenapp/components/Ocrcontrols.dart';
+import 'package:citizenapp/components/TipCard.dart';
 import 'package:flutter/material.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
@@ -22,7 +23,11 @@ class Ocrcapturehome extends StatelessWidget {
           const SizedBox(height: 24),
           Ocrcontrols(colors: colors),
           const SizedBox(height: 20),
-          _buildFooterHint(colors),
+          TipCard(
+            text:
+                "Assurez-vous que toutes les informations sont visibles et non floues.",
+            colors: colors,
+          ),
           const SizedBox(height: 16),
         ],
       ),
@@ -82,26 +87,6 @@ class Ocrcapturehome extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildFooterHint(ShadColorScheme colors) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 32),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Icon(Icons.shield_outlined, size: 16, color: colors.mutedForeground),
-          const SizedBox(width: 8),
-          Expanded(
-            child: Text(
-              "Assurez-vous que toutes les informations sont visibles et non floues.",
-              style: TextStyle(color: colors.mutedForeground, fontSize: 12),
-            ),
-          ),
-        ],
       ),
     );
   }
