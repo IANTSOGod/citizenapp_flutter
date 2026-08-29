@@ -57,28 +57,7 @@ class Stage1 extends StatelessWidget {
                 PageIndicator(colors: colors),
                 const SizedBox(height: 36),
                 SecurityBadge(colors: colors),
-                const SizedBox(height: 9),
-                SizedBox(
-                  width: double.infinity,
-                  height: 46,
-                  child: ShadButton.outline(
-                    onPressed: () {
-                      // TODO: connexion
-                    },
-                    foregroundColor: colors.primary,
-                    decoration: ShadDecoration(
-                      border: ShadBorder.all(color: colors.primary, width: 1),
-                    ),
-                    child: const Text(
-                      'J’ai déjà un compte',
-                      style: TextStyle(
-                        fontSize: 11,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 20),
               ],
             ),
           ),

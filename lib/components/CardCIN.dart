@@ -1,3 +1,4 @@
+import 'package:citizenapp/bloc/Activateocrcapturebloc/activateocrcapture_bloc.dart';
 import 'package:citizenapp/bloc/Activationstepbloc/activationstep_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,10 +28,18 @@ class CardCIN extends StatelessWidget {
                   'Ex: 123 456 789 012',
                   style: TextStyle(fontSize: 11, color: Color(0xFF9AA0AA)),
                 ),
-                trailing: const Icon(
-                  LucideIcons.scanLine,
-                  size: 16,
-                  color: Color(0xFF9AA0AA),
+                trailing: SizedBox(
+                  width: 20,
+                  height: 20,
+                  child: IconButton.outlined(
+                    padding: EdgeInsets.zero,
+                    onPressed: () {
+                      context.read<ActivateocrcaptureBloc>().add(
+                        ActivatecaptureMode(true),
+                      );
+                    },
+                    icon: const Icon(LucideIcons.scanLine, size: 14),
+                  ),
                 ),
                 keyboardType: TextInputType.number,
               ),
