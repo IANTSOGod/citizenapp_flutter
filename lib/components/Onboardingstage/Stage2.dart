@@ -11,49 +11,27 @@ class Stage2 extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = ShadTheme.of(context).colorScheme;
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        PageIndicator(colors: colors),
-        SizedBox(height: 52,),
-        SizedBox(
-          width: double.infinity,
-          height: 46,
-          child: ShadButton(
-            onPressed: () {
-              context.read<OnboardingstagingBloc>().add(ChangeStage(3));
-            },
-            backgroundColor: colors.primary,
-            foregroundColor: colors.primaryForeground,
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onHorizontalDragEnd: (details) {
+        if (details.primaryVelocity == null) return;
 
-            child: const Text(
-              'Suivant',
-              style: TextStyle(fontSize: 11, fontWeight: FontWeight.w500),
-            ),
-          ),
-        ),
-
-        const SizedBox(height: 9),
-
-        SizedBox(
-          width: double.infinity,
-          height: 46,
-          child: ShadButton.outline(
-            onPressed: () {
-              context.read<OnboardingstagingBloc>().add(ChangeStage(1));
-            },
-            foregroundColor: colors.primary,
-            decoration: ShadDecoration(
-              border: ShadBorder.all(color: colors.primary, width: 1),
-            ),
-            child: const Text(
-              'Précédent',
-              style: TextStyle(fontSize: 11, fontWeight: FontWeight.w500),
-            ),
-          ),
-        ),
-        const SizedBox(height: 8),
-      ],
+        if (details.primaryVelocity! < 0) {
+          // swipe vers la gauche -> étape suivante
+          context.read<OnboardingstagingBloc>().add(ChangeStage(3));
+        } else if (details.primaryVelocity! > 0) {
+          // swipe vers la droite -> étape précédente
+          context.read<OnboardingstagingBloc>().add(ChangeStage(1));
+        }
+      },
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          PageIndicator(colors: colors),
+          const SizedBox(height: 52),
+          Text("Stage 2"),
+        ],
+      ),
     );
   }
 }

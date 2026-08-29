@@ -13,85 +13,77 @@ class Stage1 extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = ShadTheme.of(context).colorScheme;
 
-    return Column(
-      children: [
-        Expanded(
-          child: Column(
-            children: [
-              const Spacer(),
-              DocumentIllustration(colors: colors),
-              const SizedBox(height: 34),
-              Text(
-                'Vos documents officiels,\ndans votre poche.',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: colors.foreground,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700,
-                  height: 1.2,
-                  letterSpacing: -0.2,
-                ),
-              ),
-              const SizedBox(height: 10),
-              Text(
-                'Accédez à votre carte d’identité,\n'
-                'permis de conduire et autres\n'
-                'documents essentiels en un seul\n'
-                'endroit sécurisé.',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: colors.mutedForeground,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                  height: 1.45,
-                ),
-              ),
-              const Spacer(),
-              PageIndicator(colors: colors),
-              const SizedBox(height: 36),
-              SecurityBadge(colors: colors),
-              const SizedBox(height: 16),
-              SizedBox(
-                width: double.infinity,
-                height: 46,
-                child: ShadButton(
-                  onPressed: () {
-                    context.read<OnboardingstagingBloc>().add(ChangeStage(2));
-                  },
-                  backgroundColor: colors.primary,
-                  foregroundColor: colors.primaryForeground,
-
-                  child: const Text(
-                    'Démarrer l’activation',
-                    style: TextStyle(fontSize: 11, fontWeight: FontWeight.w500),
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onHorizontalDragEnd: (details) {
+        if (details.primaryVelocity != null && details.primaryVelocity! < 0) {
+          context.read<OnboardingstagingBloc>().add(ChangeStage(2));
+        }
+      },
+      child: Column(
+        children: [
+          Expanded(
+            child: Column(
+              children: [
+                const Spacer(),
+                DocumentIllustration(colors: colors),
+                const SizedBox(height: 34),
+                Text(
+                  'Vos documents officiels,\ndans votre poche.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: colors.foreground,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    height: 1.2,
+                    letterSpacing: -0.2,
                   ),
                 ),
-              ),
-
-              const SizedBox(height: 9),
-
-              SizedBox(
-                width: double.infinity,
-                height: 46,
-                child: ShadButton.outline(
-                  onPressed: () {
-                    // TODO: connexion
-                  },
-                  foregroundColor: colors.primary,
-                  decoration: ShadDecoration(
-                    border: ShadBorder.all(color: colors.primary, width: 1),
-                  ),
-                  child: const Text(
-                    'J’ai déjà un compte',
-                    style: TextStyle(fontSize: 11, fontWeight: FontWeight.w500),
+                const SizedBox(height: 10),
+                Text(
+                  'Accédez à votre carte d’identité,\n'
+                  'permis de conduire et autres\n'
+                  'documents essentiels en un seul\n'
+                  'endroit sécurisé.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: colors.mutedForeground,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    height: 1.45,
                   ),
                 ),
-              ),
-              const SizedBox(height: 8),
-            ],
+                const Spacer(),
+                PageIndicator(colors: colors),
+                const SizedBox(height: 36),
+                SecurityBadge(colors: colors),
+                const SizedBox(height: 9),
+                SizedBox(
+                  width: double.infinity,
+                  height: 46,
+                  child: ShadButton.outline(
+                    onPressed: () {
+                      // TODO: connexion
+                    },
+                    foregroundColor: colors.primary,
+                    decoration: ShadDecoration(
+                      border: ShadBorder.all(color: colors.primary, width: 1),
+                    ),
+                    child: const Text(
+                      'J’ai déjà un compte',
+                      style: TextStyle(
+                        fontSize: 11,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 8),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
