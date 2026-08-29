@@ -1,5 +1,6 @@
 import 'package:citizenapp/bloc/onboardingstagingbloc/onboardingstaging_bloc.dart';
 import 'package:citizenapp/components/Pageindicator.dart';
+import 'package:citizenapp/pages/Accountactivation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
@@ -21,7 +22,12 @@ class Stage3 extends StatelessWidget {
           height: 46,
           child: ShadButton(
             onPressed: () {
-              print("final");
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const Accountactivation(),
+                ),
+              );
             },
             backgroundColor: colors.primary,
             foregroundColor: colors.primaryForeground,

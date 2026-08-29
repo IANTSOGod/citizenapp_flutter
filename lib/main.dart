@@ -1,3 +1,4 @@
+import 'package:citizenapp/bloc/Activationstepbloc/activationstep_bloc.dart';
 import 'package:citizenapp/bloc/onboardingstagingbloc/onboardingstaging_bloc.dart';
 import 'package:citizenapp/bloc/Languagebloc/language_bloc.dart';
 import 'package:citizenapp/pages/onboarding.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         BlocProvider<OnboardingstagingBloc>(
           create: (_) => OnboardingstagingBloc(),
         ),
+        BlocProvider<ActivationstepBloc>(create: (_)=>ActivationstepBloc(),)
       ],
       child: ShadApp(
         debugShowCheckedModeBanner: false,
