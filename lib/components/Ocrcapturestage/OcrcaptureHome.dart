@@ -19,9 +19,13 @@ class Ocrcapturehome extends StatelessWidget {
           const SizedBox(height: 24),
           _buildHeader(colors),
           const SizedBox(height: 32),
-          Imagecapture(colors: colors),
-          const SizedBox(height: 24),
-          Ocrcontrols(colors: colors),
+          Column(
+            children: [
+              Imagecapture(colors: colors),
+              const SizedBox(height: 24),
+              Ocrcontrols(colors: colors),
+            ],
+          ),
           const SizedBox(height: 20),
           TipCard(
             text:

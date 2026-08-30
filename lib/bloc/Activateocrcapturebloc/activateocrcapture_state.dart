@@ -13,13 +13,14 @@ final class ActivateocrcaptureOff extends ActivateocrcaptureState {}
 
 final class ActivateocrcaptureLoading extends ActivateocrcaptureState {}
 
+final class ActivateocrcaptureScanning extends ActivateocrcaptureState {}
+
 final class ActivateocrcaptureSuccess extends ActivateocrcaptureState {
   final String cin;
 
   const ActivateocrcaptureSuccess(this.cin);
 
   @override
-  // TODO: implement props
   List<Object> get props => [cin];
 }
 
@@ -29,7 +30,6 @@ final class ActivateocrcaptureError extends ActivateocrcaptureState {
   const ActivateocrcaptureError(this.message);
 
   @override
-  // TODO: implement props
   List<Object> get props => [message];
 }
 

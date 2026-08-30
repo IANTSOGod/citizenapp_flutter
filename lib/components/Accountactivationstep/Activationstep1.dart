@@ -17,15 +17,33 @@ class Activationstep1 extends StatelessWidget {
         builder: (context, state) {
           if (state is ActivateocrcaptureOff) {
             return Contentcininput();
-          } else if (state is ActivateocrcaptureOn) {
-            return Ocrcapturehome();
-          } else if (state is Activateocrbyfile) {
-            return OcrImagePickerCard();
-          } else if (state is Viewtipsstate) {
-            return OcrScanGuide();
-          } else {
-            return Text("Not implemented state");
           }
+
+          if (state is ActivateocrcaptureOn ||
+              state is ActivateocrcaptureLoading ||
+              state is ActivateocrcaptureScanning) {
+            return Ocrcapturehome();
+          }
+
+          if (state is Activateocrbyfile) {
+            return OcrImagePickerCard();
+          }
+
+          if (state is Viewtipsstate) {
+            return OcrScanGuide();
+          }
+
+          if (state is ActivateocrcaptureError) {
+            return Center(
+              child: Text(state.message, textAlign: TextAlign.center),
+            );
+          }
+
+          if (state is ActivateocrcaptureSuccess) {
+            return Center(child: Text('CIN détectée : ${state.cin}'));
+          }
+
+          return const SizedBox.shrink();
         },
       ),
     );
