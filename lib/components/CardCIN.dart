@@ -56,7 +56,7 @@ class CardCIN extends StatelessWidget {
                   const SizedBox(width: 4),
                   Expanded(
                     child: Text(
-                      "12 chiffres figurent sur votre carte d'identité.",
+                      "12 chiffres figurent sur votre carte d'identité",
                       style: TextStyle(
                         fontSize: 8,
                         color: Colors.grey.shade600,
