@@ -6,3 +6,27 @@ class OtpState extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class OtpInit extends OtpState {}
+
+class OtpCodecountdown extends OtpState {
+  final int duration;
+
+  const OtpCodecountdown({required this.duration});
+
+  @override
+  List<Object> get props => [duration];
+}
+
+class OtpLoading extends OtpState {}
+
+class OtpSuccess extends OtpState {}
+
+class OtpError extends OtpState {
+  final String message;
+
+  const OtpError({required this.message});
+
+  @override
+  List<Object> get props => [message];
+}

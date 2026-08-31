@@ -5,7 +5,7 @@ part 'otp_event.dart';
 part 'otp_state.dart';
 
 class OtpBloc extends Bloc<OtpEvent, OtpState> {
-  OtpBloc() : super(const OtpState()) {
+  OtpBloc() : super(OtpInit()) {
     on<OtpEvent>((event, emit) {
       // TODO: implement event handler
     });
