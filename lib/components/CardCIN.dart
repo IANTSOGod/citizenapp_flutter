@@ -69,7 +69,6 @@ class CardCIN extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 22),
-        // Bouton Suivant
         SizedBox(
           width: double.infinity,
           child: ShadButton(
