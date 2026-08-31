@@ -25,10 +25,14 @@ citizenapp/
 │   ├── bloc/             # Gestion des états
 │   │   │── Languagebloc            # Gestion de l'état de langue
 │   │   ├── onboardingstagingbloc   # Gestion des états de l'onboarding
-│   │   └── Activationstepbloc      # Gestion des états d'activation de compte
+│   │   ├── Activationstepbloc      # Gestion des états d'activation de compte
+│   │   ├── Activateocrcapturebloc  # Gestion des états de capture OCR
+│   │   └── Otpbloc                 # Gestion des états de validation OTP
 │   └── utils/theme.dart  # Charte graphique
 ├── assets/               # Fichiers statiques
 ├── pubspec.yaml
+├── mason.yaml            # Configuration de Mason
+├── mason-lock.yaml       # Lock file de Mason
 └── README.md
 ```
 
@@ -36,6 +40,7 @@ citizenapp/
 
 - Flutter SDK (version stable recommandée)
 - Un éditeur (VS Code recommandé + extension Flutter)
+- Mason CLI ( si pas sur VS Code)
 
 ## Installation
 
@@ -47,9 +52,11 @@ flutter run
 ## Build
 
 ```bash
-flutter build apk        # Android
-flutter build ios        # iOS
+flutter build apk --split-per-abi       # Android
+flutter build ios                       # iOS
 ```
+
+A récupérer le build arm64
 
 ## Contribution
 
