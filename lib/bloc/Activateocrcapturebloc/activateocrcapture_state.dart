@@ -16,12 +16,12 @@ final class ActivateocrcaptureLoading extends ActivateocrcaptureState {}
 final class ActivateocrcaptureScanning extends ActivateocrcaptureState {}
 
 final class ActivateocrcaptureSuccess extends ActivateocrcaptureState {
-  final String cin;
+  final Verifyusercincredentials user;
 
-  const ActivateocrcaptureSuccess(this.cin);
+  const ActivateocrcaptureSuccess(this.user);
 
   @override
-  List<Object> get props => [cin];
+  List<Object> get props => [user];
 }
 
 final class ActivateocrcaptureError extends ActivateocrcaptureState {

@@ -40,7 +40,7 @@ class Activationstep1 extends StatelessWidget {
           }
 
           if (state is ActivateocrcaptureSuccess) {
-            return Center(child: Text('CIN détectée : ${state.cin}'));
+            return Center(child: Text('CIN détectée : ${state.user.num_cin}'));
           }
 
           return const SizedBox.shrink();

@@ -16,7 +16,7 @@ class ProgressCircle extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.read<ActivateocrcaptureBloc>().add(ActivatecaptureMode(false));
+        context.read<ActivateocrcaptureBloc>().add(ActivatecaptureMode(true));
       },
       child: SizedBox(
         width: 64,

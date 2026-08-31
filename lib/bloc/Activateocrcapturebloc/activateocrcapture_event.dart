@@ -16,6 +16,16 @@ final class ActivatecaptureMode extends ActivateocrcaptureEvent {
   List<Object> get props => [ismodeon];
 }
 
+final class OcrRecognized extends ActivateocrcaptureEvent {
+  final Verifyusercincredentials user;
+
+  const OcrRecognized(this.user);
+
+  @override
+  // TODO: implement props
+  List<Object> get props => [user];
+}
+
 final class Capturing extends ActivateocrcaptureEvent {
   const Capturing();
 }
