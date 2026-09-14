@@ -7,7 +7,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 class Activationstep2 extends StatelessWidget {
-  const Activationstep2({super.key});
+  final String email;
+
+  const Activationstep2({super.key, required this.email});
 
   @override
   Widget build(BuildContext context) {
@@ -63,8 +65,8 @@ class Activationstep2 extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             // Email masqué
-            const Text(
-              'a•••@email.mg',
+            Text(
+              email,
               style: TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.w600,
@@ -136,7 +138,7 @@ class Activationstep2 extends StatelessWidget {
                   return TextButton(
                     onPressed: () {
                       context.read<OtpExpiryBloc>().add(
-                        Resendcode("iantsochristian@gmail.com"),
+                        Resendcode(email),
                       );
                     },
                     child: Text("Renvoyer le code"),
