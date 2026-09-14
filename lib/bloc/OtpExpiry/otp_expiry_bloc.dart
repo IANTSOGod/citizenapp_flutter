@@ -15,6 +15,7 @@ class OtpExpiryBloc extends Bloc<OtpExpiryEvent, OtpExpiryState> {
       // TODO: implement event handler
       if (event.email == "iantsochristian@gmail.com") {
         emit(OtpExpiredInit(_initialDuration));
+        _startTimer();
       }
     });
     on<OtpTick>((event, emit) {
