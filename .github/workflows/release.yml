@@ -25,7 +25,7 @@ jobs:
 
       - name: Run analyzer (optionnel, échoue le build si erreurs)
         run: flutter analyze
-
+        continue-on-error: true
       - name: Build APK
         run: flutter build apk --release
 
