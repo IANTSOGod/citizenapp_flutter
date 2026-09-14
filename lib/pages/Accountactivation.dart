@@ -1,5 +1,6 @@
-import 'package:citizenapp/bloc/Activateocrcapturebloc/activateocrcapture_bloc.dart';
 import 'package:citizenapp/bloc/Activationstepbloc/activationstep_bloc.dart';
+import 'package:citizenapp/bloc/OtpExpiry/otp_expiry_bloc.dart';
+import 'package:citizenapp/bloc/Otpform/otpform_bloc.dart';
 import 'package:citizenapp/components/Accountactivationstep/Activationstep1.dart';
 import 'package:citizenapp/components/Accountactivationstep/Activationstep2.dart';
 import 'package:citizenapp/components/Accountactivationstep/Activationstep3.dart';
@@ -39,11 +40,18 @@ class Accountactivation extends StatelessWidget {
                 Expanded(
                   child: Center(
                     child: switch (state.step) {
-                      1 => BlocProvider<ActivateocrcaptureBloc>(
-                        create: (_) => ActivateocrcaptureBloc(),
-                        child: Activationstep1(),
+                      1 => const Activationstep1(),
+                      2 => MultiBlocProvider(
+                        providers: [
+                          BlocProvider<OtpformBloc>(
+                            create: (_) => OtpformBloc(),
+                          ),
+                          BlocProvider<OtpExpiryBloc>(
+                            create: (_) => OtpExpiryBloc(),
+                          ),
+                        ],
+                        child: Activationstep2(),
                       ),
-                      2 => const Activationstep2(),
                       3 => const Activationstep3(),
                       _ => const Text("Not implemented step"),
                     },

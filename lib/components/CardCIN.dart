@@ -1,4 +1,3 @@
-import 'package:citizenapp/bloc/Activateocrcapturebloc/activateocrcapture_bloc.dart';
 import 'package:citizenapp/bloc/Activationstepbloc/activationstep_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,11 +32,7 @@ class CardCIN extends StatelessWidget {
                   height: 20,
                   child: IconButton.outlined(
                     padding: EdgeInsets.zero,
-                    onPressed: () {
-                      context.read<ActivateocrcaptureBloc>().add(
-                        ActivatecaptureMode(true),
-                      );
-                    },
+                    onPressed: () {},
                     icon: const Icon(LucideIcons.scanLine, size: 14),
                   ),
                 ),
