@@ -1,6 +1,8 @@
 import 'package:citizenapp/bloc/onboardingstagingbloc/onboardingstaging_bloc.dart';
+import 'package:citizenapp/components/IdentityVisual.dart';
 import 'package:citizenapp/components/Pageindicator.dart';
 import 'package:citizenapp/pages/Accountactivation.dart';
+import 'package:citizenapp/pages/Login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
@@ -15,56 +17,93 @@ class Stage3 extends StatelessWidget {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onHorizontalDragEnd: (details) {
-        if (details.primaryVelocity != null && details.primaryVelocity! > 0) {
-          // swipe vers la droite -> retour à l'étape précédente
+        final velocity = details.primaryVelocity;
+
+        if (velocity == null) return;
+
+        if (velocity > 0) {
           context.read<OnboardingstagingBloc>().add(ChangeStage(2));
         }
       },
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          PageIndicator(colors: colors),
-          const SizedBox(height: 52),
-          SizedBox(
-            width: double.infinity,
-            height: 46,
-            child: ShadButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const Accountactivation(),
+      child: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 19),
+          child: Column(
+            children: [
+              const SizedBox(height: 25),
+
+              // ─────────────────────────────
+              // VISUEL
+              // ─────────────────────────────
+              Expanded(child: IdentityVisual(colors: colors)),
+
+              const SizedBox(height: 10),
+
+              // ─────────────────────────────
+              // INDICATEUR
+              // ─────────────────────────────
+              PageIndicator(colors: colors),
+
+              const SizedBox(height: 28),
+
+              // ─────────────────────────────
+              // BOUTON PRINCIPAL
+              // ─────────────────────────────
+              SizedBox(
+                width: double.infinity,
+                child: ShadButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Accountactivation(),
+                      ),
+                    );
+                  },
+                  backgroundColor: colors.primary,
+                  foregroundColor: colors.primaryForeground,
+                  child: const Text(
+                    "Démarrer l'activation",
+                    style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
                   ),
-                );
-              },
-              backgroundColor: colors.primary,
-              foregroundColor: colors.primaryForeground,
-              child: const Text(
-                "Démarrer l'activation",
-                style: TextStyle(fontSize: 11, fontWeight: FontWeight.w500),
+                ),
               ),
-            ),
+
+              const SizedBox(height: 10),
+
+              // ─────────────────────────────
+              // BOUTON SECONDAIRE
+              // ─────────────────────────────
+              SizedBox(
+                width: double.infinity,
+                child: ShadButton.outline(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Login(
+                          onBiometricTap: () {},
+                          onConnectionIssueTap: () {},
+                          onPinTap: () {},
+                        ),
+                      ),
+                    );
+                  },
+                  foregroundColor: colors.primary,
+                  decoration: ShadDecoration(
+                    border: ShadBorder.all(color: colors.primary, width: 1),
+                  ),
+                  child: const Text(
+                    "Se connecter",
+                    style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 18),
+            ],
           ),
-          const SizedBox(height: 9),
-          SizedBox(
-            width: double.infinity,
-            height: 46,
-            child: ShadButton.outline(
-              onPressed: () {
-                // TODO: connexion
-              },
-              foregroundColor: colors.primary,
-              decoration: ShadDecoration(
-                border: ShadBorder.all(color: colors.primary, width: 1),
-              ),
-              child: const Text(
-                'J’ai déjà un compte',
-                style: TextStyle(fontSize: 11, fontWeight: FontWeight.w500),
-              ),
-            ),
-          ),
-          const SizedBox(height: 8),
-        ],
+        ),
       ),
     );
   }

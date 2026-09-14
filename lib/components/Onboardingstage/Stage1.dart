@@ -41,9 +41,7 @@ class Stage1 extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  'Accédez à votre carte d’identité,\n'
-                  'permis de conduire et autres\n'
-                  'documents essentiels en un seul\n'
+                  'Tous vosdocuments essentiels en un seul\n'
                   'endroit sécurisé.',
                   textAlign: TextAlign.center,
                   style: TextStyle(
