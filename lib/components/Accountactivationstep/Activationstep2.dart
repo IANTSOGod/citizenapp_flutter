@@ -10,8 +10,9 @@ import 'package:shadcn_ui/shadcn_ui.dart';
 
 class Activationstep2 extends StatelessWidget {
   final String email;
+  final int cin;
 
-  const Activationstep2({super.key, required this.email});
+  const Activationstep2({super.key, required this.email,required this.cin});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class Activationstep2 extends StatelessWidget {
           context.read<ActivationstepBloc>().add(
             ChangeStep(
               3,
-              Activationdata(CIN: 0, email: "", authMethod: AuthMethod.pin),
+              Activationdata(CIN: cin, email:email, authMethod: AuthMethod.pin),
             ),
           );
         }

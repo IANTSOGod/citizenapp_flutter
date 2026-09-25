@@ -79,7 +79,7 @@ class CardCIN extends StatelessWidget {
                   ChangeStep(
                     2,
                     Activationdata(
-                      CIN: 0,
+                      CIN: int.parse(_cincontroller.text),
                       email: _cincontroller.text,
                       authMethod: AuthMethod.pin,
                     ),

@@ -53,7 +53,10 @@ class Accountactivation extends StatelessWidget {
                             create: (_) => OtpExpiryBloc(),
                           ),
                         ],
-                        child: Activationstep2(email: state.data.email),
+                        child: Activationstep2(
+                          email: state.data.email,
+                          cin: state.data.CIN,
+                        ),
                       ),
                       3 => Activationstep3(
                         selected: state.data.authMethod,
