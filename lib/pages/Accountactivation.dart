@@ -10,6 +10,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
+import '../Types/Activationdata.dart';
+import '../components/Accountactivationstep/Activationstep4.dart';
+
 class Accountactivation extends StatelessWidget {
   const Accountactivation({super.key});
 
@@ -52,7 +55,21 @@ class Accountactivation extends StatelessWidget {
                         ],
                         child: Activationstep2(email: state.data.email),
                       ),
-                      3 => const Activationstep3(),
+                      3 => Activationstep3(
+                        selected: state.data.authMethod,
+                        onSelect: (method) =>
+                            context.read<ActivationstepBloc>().add(
+                              ChangeStep(
+                                3,
+                                Activationdata(
+                                  CIN: state.data.CIN,
+                                  email: state.data.email,
+                                  authMethod: method,
+                                ),
+                              ),
+                            ),
+                      ),
+                      4 => Activationstep4(method: state.data.authMethod),
                       _ => const Text("Not implemented step"),
                     },
                   ),

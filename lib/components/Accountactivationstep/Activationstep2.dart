@@ -1,4 +1,5 @@
 import 'package:citizenapp/Types/Activationdata.dart';
+import 'package:citizenapp/Types/AuthMethod.dart';
 import 'package:citizenapp/bloc/Activationstepbloc/activationstep_bloc.dart';
 import 'package:citizenapp/bloc/OtpExpiry/otp_expiry_bloc.dart';
 import 'package:citizenapp/bloc/Otpform/otpform_bloc.dart';
@@ -18,7 +19,10 @@ class Activationstep2 extends StatelessWidget {
       listener: (context, state) {
         if (state is OtpformSucces) {
           context.read<ActivationstepBloc>().add(
-            ChangeStep(3, Activationdata(CIN: 0, email: "")),
+            ChangeStep(
+              3,
+              Activationdata(CIN: 0, email: "", authMethod: AuthMethod.pin),
+            ),
           );
         }
       },

@@ -12,7 +12,12 @@ class ActivationProgressbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final labels = ['Identité', 'Saisie du code otp', 'test'];
+    final labels = [
+      'Identité',
+      'Saisie du code otp',
+      'Choix de vérification',
+      'Saisie de vérification',
+    ];
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
