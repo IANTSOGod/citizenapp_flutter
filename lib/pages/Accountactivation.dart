@@ -50,9 +50,7 @@ class Accountactivation extends StatelessWidget {
                             create: (_) => OtpExpiryBloc(),
                           ),
                         ],
-                        child: Activationstep2(
-                          email: "iantsochristian@gmail.com",
-                        ),
+                        child: Activationstep2(email: state.data.email),
                       ),
                       3 => const Activationstep3(),
                       _ => const Text("Not implemented step"),

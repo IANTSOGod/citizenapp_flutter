@@ -1,3 +1,4 @@
+import 'package:citizenapp/Types/Activationdata.dart';
 import 'package:citizenapp/bloc/Activationstepbloc/activationstep_bloc.dart';
 import 'package:citizenapp/bloc/OtpExpiry/otp_expiry_bloc.dart';
 import 'package:citizenapp/bloc/Otpform/otpform_bloc.dart';
@@ -16,7 +17,9 @@ class Activationstep2 extends StatelessWidget {
     return BlocListener<OtpformBloc, OtpformState>(
       listener: (context, state) {
         if (state is OtpformSucces) {
-          context.read<ActivationstepBloc>().add(ChangeStep(3));
+          context.read<ActivationstepBloc>().add(
+            ChangeStep(3, Activationdata(CIN: 0, email: "")),
+          );
         }
       },
       child: SingleChildScrollView(
@@ -137,9 +140,7 @@ class Activationstep2 extends StatelessWidget {
                 } else {
                   return TextButton(
                     onPressed: () {
-                      context.read<OtpExpiryBloc>().add(
-                        Resendcode(email),
-                      );
+                      context.read<OtpExpiryBloc>().add(Resendcode(email));
                     },
                     child: Text("Renvoyer le code"),
                   );

@@ -1,3 +1,4 @@
+import 'package:citizenapp/Types/Activationdata.dart';
 import 'package:citizenapp/bloc/Activationstepbloc/activationstep_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,6 +9,7 @@ class CardCIN extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController _cincontroller = TextEditingController();
     return Column(
       children: [
         ShadCard(
@@ -37,6 +39,7 @@ class CardCIN extends StatelessWidget {
                   ),
                 ),
                 keyboardType: TextInputType.number,
+                controller: _cincontroller,
               ),
 
               const SizedBox(height: 7),
@@ -70,7 +73,12 @@ class CardCIN extends StatelessWidget {
             backgroundColor: const Color(0xFF004B87),
             foregroundColor: Colors.white,
             onPressed: () {
-              context.read<ActivationstepBloc>().add(ChangeStep(2));
+              context.read<ActivationstepBloc>().add(
+                ChangeStep(
+                  2,
+                  Activationdata(CIN: 0, email: _cincontroller.text),
+                ),
+              );
             },
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.center,

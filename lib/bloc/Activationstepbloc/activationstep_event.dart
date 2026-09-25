@@ -9,10 +9,12 @@ sealed class ActivationstepEvent extends Equatable {
 
 final class ChangeStep extends ActivationstepEvent {
   final int step;
+  final Activationdata data;
 
-  const ChangeStep(this.step);
+  const ChangeStep(this.step,this.data);
 
   @override
   // TODO: implement props
-  List<Object> get props => [step];
+  List<Object> get props => [step,data];
 }
+

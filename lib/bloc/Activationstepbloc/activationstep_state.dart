@@ -9,10 +9,10 @@ sealed class ActivationstepState extends Equatable {
 
 final class ActivationstepActive extends ActivationstepState {
   final int step;
-
-  const ActivationstepActive(this.step);
+  final Activationdata data;
+  const ActivationstepActive(this.step, this.data);
 
   @override
   // TODO: implement props
-  List<Object> get props => [step];
+  List<Object> get props => [step, data];
 }
